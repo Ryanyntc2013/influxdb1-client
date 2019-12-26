@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	client "github.com/Ryanyntc2013/influxdb1-client/v2"
+	client "github.com/Ryanyntc2013/influxdb1-client"
 )
 
 // Create a new client
