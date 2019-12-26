@@ -298,6 +298,18 @@ type Point struct {
 	pt models.Point
 }
 
+// NewPointDefault 返回空点
+func NewPointDefault() *Point {
+	return &Point{
+		pt: models.NewPointEmpty(),
+	}
+}
+
+// ResetPoint 重新设置点的数据
+func (p *Point) ResetPoint(name string, tags Tags, fields Fields, t time.Time) error {
+	return p.pt.ResetPoint(ame, tags, fields, t)
+}
+
 // NewPoint returns a point with the given timestamp. If a timestamp is not
 // given, then data is sent to the database without a timestamp, in which case
 // the server will assign local time upon reception. NOTE: it is recommended to

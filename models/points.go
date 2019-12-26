@@ -1330,6 +1330,23 @@ func NewPoint(name string, tags Tags, fields Fields, t time.Time) (Point, error)
 	}, nil
 }
 
+// NewPointEmpty return a new empty point
+func NewPointEmpty() Point {
+	return &point{}
+}
+
+// ResetPoint reset the points
+func (p *point) ResetPoint(name string, tags Tags, fields Fields, t time.Time) error {
+	key, err := pointKey(name, tags, fields, t)
+	if err != nil {
+		return err
+	}
+	p.key = key
+	p.time = t
+	p.fields = fields.MarshalBinary()
+	return nil
+}
+
 // pointKey checks some basic requirements for valid points, and returns the
 // key, along with an possible error.
 func pointKey(measurement string, tags Tags, fields Fields, t time.Time) ([]byte, error) {
