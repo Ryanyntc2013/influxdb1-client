@@ -65,6 +65,9 @@ type Point interface {
 	// Name return the measurement name for the point.
 	Name() []byte
 
+	// ResetPoint reset the points
+	ResetPoint(name string, tags Tags, fields Fields, t time.Time) error
+
 	// SetName updates the measurement name for the point.
 	SetName(string)
 

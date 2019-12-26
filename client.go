@@ -1,5 +1,4 @@
-// Package client (v2) is the current official Go client for InfluxDB.
-package client // import "github.com/Ryanyntc2013/influxdb1-client"
+package client
 
 import (
 	"bytes"
@@ -306,8 +305,12 @@ func NewPointDefault() *Point {
 }
 
 // ResetPoint 重新设置点的数据
-func (p *Point) ResetPoint(name string, tags Tags, fields Fields, t time.Time) error {
-	return p.pt.ResetPoint(ame, tags, fields, t)
+func (p *Point) ResetPoint(name string, tags map[string]string, fields map[string]interface{}, t ...time.Time) error {
+	var T time.Time
+	if len(t) > 0 {
+		T = t[0]
+	}
+	return p.pt.ResetPoint(name, models.NewTags(tags), fields, T)
 }
 
 // NewPoint returns a point with the given timestamp. If a timestamp is not
