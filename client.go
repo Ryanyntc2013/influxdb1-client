@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Ryanyntc2013/influxdb1-client/client/models"
+	"github.com/Ryanyntc2013/influxdb1-client/models"
 )
 
 // HTTPConfig is the config data needed to create an HTTP Client.
