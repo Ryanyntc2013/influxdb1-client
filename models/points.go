@@ -1,5 +1,5 @@
 // Package models implements basic objects used throughout the TICK stack.
-package models // import "github.com/Ryanyntc2013/influxdb1-client/models"
+package models
 
 import (
 	"bytes"
@@ -15,7 +15,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/Ryanyntc2013/influxdb1-client/pkg/escape"
+	"github.com/Ryanyntc2013/influxdb1-client/client/pkg/escape"
 )
 
 type escapeSet struct {
